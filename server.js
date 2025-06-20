@@ -7,16 +7,15 @@ const authRoutes = require('./routes/auth');
 dotenv.config();
 const app = express();
 
-// ✅ Enhanced CORS configuration
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://your-frontend.netlify.app'], // Replace with your actual frontend domain
+  origin: ['http://localhost:5173', 'https://mern-front-end-navy.vercel.app'], // ✅ include both local & Vercel frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight
+app.options('*', cors(corsOptions)); // ✅ preflight handling
 
 app.use(express.json()); // Parse JSON
 
